@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: envoyproxy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: envoy-to-serviceendpoint
+    spec:
+      containers:
+      - name: name
+        image: <YOURREGISTRY>.azurecr.io/envoyproxy:1.0
+        volumeMounts:
+          - name: certificate
+            mountPath: "/etc/envoycerts"
+            readOnly: true
+      volumes:
+        - name: certificate
+          secret:
+            secretName: sslcert
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name:  envoyproxy
+  # annotations:
+  #   service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+spec:
+  selector:
+    app: envoy-to-serviceendpoint
+  type:  LoadBalancer
+  ports:
+  - name:  https
+    port:  443
+    targetPort:  443
+  # - name:  admin
+  #   port:  8001
+  #   targetPort:  8001
