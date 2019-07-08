@@ -14,7 +14,7 @@ namespace keyvault
         {
             Console.WriteLine("Connecting to KeyVault through Proxy...");
             
-            var _kv = new kvHelper("https://keyvault.envoy.cloud.danielemaggio.eu");
+            var _kv = new kvHelper(Environment.GetEnvironmentVariable("proxyUrl"));
 
             Console.WriteLine("Setting secret 'testSecret' to 'secretValue'...");
             var setSecret = await _kv.SetSecret("testSecret","secretValue");

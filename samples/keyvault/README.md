@@ -20,6 +20,8 @@ This sample tries to Set and then Get the secret named "testSecret" (for which t
 
 3.  Set the following environment variables
 
+    `proxyUrl`: the Envoy Proxy URL (i.e.: "https://keyvault.envoy.mydomain.com/")
+
     `akvClientId`: Service Principal Client ID (different than the Object ID)
     
     `akvClientSecret`: Service Principal Client Secret
