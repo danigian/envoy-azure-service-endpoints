@@ -27,15 +27,16 @@ Before starting with Envoy you will need to:
     Therefore you need to create certificates for something like:
 
     keyvault.envoy.mydomain.com
+
     storage.envoy.mydomain.com
 
 ### Create the Envoy docker image
 
 0.  Modify the envoy.yaml file to point to your KeyVault/Storage (find and replace damaggiotemp.blob.core.windows.net and damaggiotemp.vault.azure.net)
 
-1.  docker build -t <yourregistry>.azurecr.io/envoyproxy:1.0 .
+1.  docker build -t yourregistry.azurecr.io/envoyproxy:1.0 .
 
-2.  docker push <yourregistry>.azurecr.io/envoyproxy:1.0
+2.  docker push yourregistry.azurecr.io/envoyproxy:1.0
 
 ### Create the secret for SSL certificates and deploy the deploy.yaml
 
