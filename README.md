@@ -4,6 +4,10 @@ Virtual Network service endpoints allow you to secure some critical Azure servic
 
 In this repo you will find out how to allow your communications to securely go through your VPN by using Envoy as a proxy.
 
+## Proposed architecture
+
+!["The slide of the proposed architecture"](architecture.png "The slide of the proposed architecture")
+
 ## Repository structure
 
 There are two folders in this repository:
